@@ -1,0 +1,168 @@
+" Enable modern Vim features not compatible with Vi spec.
+set nocompatible
+set backspace=indent,eol,start  " Make backspace sane.
+set hidden                      " Allow buffer backgrounding.
+set scrolloff=3                 " Add top/bottom scroll margins.
+set ttyfast lazyredraw          " Make drawing faster.
+set visualbell                  " Don't make noise.
+set splitbelow splitright       " Windows are created in the direction I read.
+set undofile                    " Saves undo history across sessions.
+set undodir=~/.vim/undo         " Keep vim undo out of everyones hair
+set viewoptions=cursor,folds    " Save cursor position and folds.
+set wildmenu                    " Enhanced completion.
+set wildmode=longest:full,full  " Act like shell completion.
+set history=1000                " Remember a lot.
+set incsearch                   " Search incrementally as I type.
+set relativenumber number       " Use relative line numbers.
+set showcmd                     " Show the last command.
+set showmatch                   " When a bracket is typed show its match.
+set smartcase                   " Be smart about when case sensitivity matters.
+set mouse=a                     " Turn on mouse-mode
+set clipboard=unnamed           " Use the X11 Clipboard
+nnoremap <C-w>v :vnew<CR>       " Remap V to make it sane
+
+" Highlighting settings
+set cursorline                  " Highlight the current line.
+hi CursorLine term=none cterm=none ctermbg=black guibg=black " Make the current Line stand out
+hi illuminatedWord cterm=underline gui=underline " Set word highlighting to underline
+
+" Vim Sessions Settings
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+"set g:session_directory=~/.vim/sessions " ONLY Relevant with xolox/vim-session
+
+" Set tab/space settings, to not be a barbarian.
+set expandtab
+set shiftwidth=4
+set smarttab
+set autoindent
+set smartindent
+autocmd FileType py,python setlocal nosmartindent
+autocmd FileType yml,yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" Keep temp and backup files out of working dirs
+" From https://stackoverflow.com/questions/4824188/git-ignore-vim-temporary-files
+set backupdir=$HOME/.vim/tmp//
+set directory=$HOME/.vim/tmp//
+
+" Tweak some custom stuff
+
+filetype off
+
+" Vundle Stuff
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/Vundle.vim
+
+" Load local customizations, if they exist:
+if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
+  source ~/.dotfiles_local/vim/vimrc
+  call vundle#begin()
+else
+" execute pathogen#infect('~/.dotfiles/vim/bundle-ext/{}')
+  call vundle#begin()
+
+  " Load plugins that should only run if there aren't customizations
+  Plugin 'google/vim-codefmt'
+  Plugin 'google/vim-maktaba'
+  Plugin 'google/vim-glaive'
+  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'google/vim-jsonnet'
+endif
+
+" For plugins that should always run
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'tpope/vim-sensible'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'chrisbra/csv.vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'jmcantrell/vim-diffchanges'
+Plugin 'chrisbra/Recover.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Valloric/ListToggle'
+Plugin 'avakhov/vim-yaml'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'simnalamburt/vim-mundo'
+Plugin 'vim-scripts/VisIncr'
+Plugin 'RRethy/vim-illuminate'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+
+" All of your plugins must be added before the following line.
+
+call vundle#end()
+" Load pathogen
+"execute pathogen#infect('~/.dotfiles/vim/bunlde-always/{}')
+
+
+call glaive#Install()
+Glaive codefmt plugin[mappings]
+" Enable autoformatting on save for the languages that enforce
+" formatting, and for which all checked-in code is already conforming (thus,
+" autoformatting will never change unrelated lines in a file).
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+ " autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+augroup END
+
+
+" Powerline statusbar and settings
+set guifont=Hack:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+set showtabline=2
+set laststatus=2
+set noshowmode
+
+" Syntastic settings:
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+
+" Clipboard overrides for system-clipboard integration and SSH-TMUX-Forwarding
+" copy the current text selection to the system clipboard
+if has('gui_running') || has('nvim') && exists('$DISPLAY')
+  noremap <Leader>y "+y
+else
+  " copy to attached terminal using the yank(1) script:
+  " https://github.com/sunaku/home/blob/master/bin/yank
+  noremap <silent> <Leader>y y:call system('yank > /dev/tty', @0)<Return>
+endif
+
+" Enable file type based indent configuration and syntax highlighting.
+" Note that when code is pasted via the terminal, vim by default does not detect
+" that the code is pasted (as opposed to when using vim's paste mappings), which
+" leads to incorrect indentation when indent mode is on.
+" To work around this, use ":set paste" / ":set nopaste" to toggle paste mode.
+" You can also use a plugin to:
+" - enter insert mode with paste (https://github.com/tpope/vim-unimpaired)
+" - auto-detect pasting (https://github.com/ConradIrwin/vim-bracketed-paste)
+filetype plugin indent on
+syntax on

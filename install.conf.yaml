@@ -1,0 +1,21 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
+- link:
+    ~/.dotfiles: ''
+    ~/.zshrc: 'zsh/zshrc'
+    ~/.oh-my-zsh: 'zsh/oh-my-zsh/'
+    ~/.tmux: 'tmux/'
+    ~/.tmux.conf: 'tmux/tmux.conf'
+    ~/.vim: 'vim/'
+    ~/.vimrc: 'vim/vimrc'
+    ~/.dotfiles/zsh/oh-my-zsh/custom/themes/powerlevel9k:
+      create: true
+      path: 'zsh/powerlevel9k'
+

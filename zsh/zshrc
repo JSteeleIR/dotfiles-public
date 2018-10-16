@@ -1,0 +1,94 @@
+#######################################################################
+#                                ZSHRC                                #
+#######################################################################
+
+# One config to rule them all.
+# This zshrc has been structured to be as minimalistic and flexible as
+# possible, instead sourcing from individual files, grouping configs by
+# their relatedness. e.g, Oh-my-zsh settings are all set in one config,
+# and golang zsh-completions are in another.
+
+# Configs are sourced from ~/.dotfiles/zsh/zshrc.d/ and
+# ~/.dotfiles_local/zsh/zshrcd./ to enable
+# '.dotfiles' to be a set of baseline/portable configs, and
+# '.dotfiles_local' to contain host-specific configs and overrides.
+# Sourcing order is determined alphanumerically according to basename,
+# (irrespective of full path) so that configs are sourced in the proper
+# order, whether in the base config or in the local config. Config files
+# should contain a prefix to adhere to the alphanumeric standard, and
+# enable sourcing split into 'stages' e.g.: '10-', '20-', '30-'
+# All '10-' configs, base OR local, will be loaded before any '20-' configs
+#
+# E.g., given the following structure:
+#
+#       .dotfiles/zsh/zshrc.d/00-conf1.zsh
+#       .dotfiles/zsh/zshrc.d/30-conf2.zsh
+#       .dotfiles_local/zsh/zshrc.d/20-conf3.zsh
+#
+# The sourcing order will be as such:
+#
+#       .dotfiles/zsh/zshrc.d/00-conf1.zsh
+#       .dotfiles_local/zsh/zshrc.d/20-conf3.zsh
+#       .dotfiles/zsh/zshrc.d/30-conf2.zsh
+#
+# This structure means that local configs can overide settings in base
+# configs, even when those settings need to be configured prior to
+# some settings in a later 'stage' of the base config.
+#
+# Base configs should prefer to use lower-numbered prefixes, so that
+# local files may override base files by using a higher-numbered prefix.
+# E.g.:
+#       .dotfiles/zsh/zshrc.d/00-baseconf1.zsh <- Sets some config
+#       .dotfiles_local/zshrc-d/09-localconf1.zsh <- Overides that config
+#
+# By convention, config files should try to adhere to the following
+# PREFIX-<name>.zsh structure to maintain this flexibility and the
+# 'stage'-ordering mechanisim. Stages are structured as such:
+#
+#  00- Pre-TMUX : Configs that should be loaded before starting or attaching to
+#       a TMUX session, where 05-TMUX.zsh loads TMUX itself.
+#
+#  10- <Reserved> : Reserved for future stage.
+#
+#  20- Pre-OMZ  : Configs that should be loaded before Oh-My-Zsh,
+#       where 25-Oh-My-ZSH loads OMZ itself.
+#
+#  30- OS-Specific : Configs that set/alter the shellenv per-OS. These MUST
+#       check that the OS running them is the one they intend to run on!
+#
+#  40- <Reserved> : Reserved for future stage.
+#  50- <Reserved> : Reserved for future stage.
+#  60- <Reserved> : Reserved for future stage.
+#  70- <Reserved> : Reserved for future stage.
+#
+#  80- Aliases  : Configs setting aliases.
+#
+#  90- Completions/Themes: Configs adding zshcompletions or themes
+#
+# When adding configs, whether to the base or local directories, adherence to
+# this structure means that files are sourced in a consistent order, after
+# their dependencies and before their dependents.
+
+
+# Helper alias right up top, so we can re-source ZSH easily
+alias resrc='. ~/.zshrc'
+
+# Source files by XX-<NAME> prefix order, across .dotfiles and .dotfiles_local
+# Don't look at it too hard. zsh globs are 'fucking wat mate', but we're using
+# them here because it's shell-native and we don't have to exec some other bin.
+# This found after a few hours of searching, HERE:
+# https://unix.stackexchange.com/questions/13605/how-to-find-files-in-subdirs-and-sort-them-by-filename-in-a-single-command
+
+SOURCES=($HOME/(.dotfiles|.dotfiles_local)/zsh/zshrc.d/*.zsh(Noe\''REPLY=${REPLY:t}'\'))
+export SOURCES
+
+# Helper to print what files will/have been sourced
+alias printzshsources="print -rl $SOURCES"
+
+# Actually source them
+for f in $SOURCES; do
+    source $f
+done
+
+# Clean PATH (Deduplicate respecting order since TMUX and resrcing makes it unwieldy)
+export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`

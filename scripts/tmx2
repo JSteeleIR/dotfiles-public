@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+function link_or_rm()
+{
+  local env="$1"
+  local tmp="$2"
+  if [ -z "${env}" ]; then
+    # No auth sock; remove symlink, if any.
+    rm -f -- "${tmp}"
+  elif [ "${env}" != "${tmp}" ]; then
+    # Construct expected symlink to point to auth sock.
+    ln -snf -- "${env}" "${tmp}"
+  fi
+}
+
+# Make the temp directory if it doesn't exist
+d="${HOME}/.tmp"
+if ! [ -d "${d}" ]; then
+  mkdir -m 700 "${d}"
+fi
+
+if [ -z "${TMUX}" ]; then
+  # Not already in tmux
+  s=".${USER}.ssh_auth_sock"
+  t=".${USER}.fwd_ssh_auth_sock"
+  link_or_rm "${SSH_AUTH_SOCK}" "${d}/${s}"
+  link_or_rm "${FWD_SSH_AUTH_SOCK}" "${d}/${t}"
+  f="FWD_SSH_AUTH_SOCK=${d}/${t}"
+  if [ -z "${FWD_SSH_AUTH_SOCK}" ]; then
+    f=""
+  fi
+  exec env SSH_AUTH_SOCK="${d}/${s}" ${f} tmux "$@"
+else
+  echo "Already in a tmux session. Giving up."
+  exit 1
+fi
