@@ -35,7 +35,7 @@ EOF
 sudo apt-get install -y vim less tmux git zsh
 
 git clone --recursive https://github.com/JSteeleIR/dotfiles-public.git ~/.dotfiles
-~/.dotfiles/install.sh
+~/.dotfiles/install
 
 # Install Vim plugins
 vim -c VundleInstall -c quitall
