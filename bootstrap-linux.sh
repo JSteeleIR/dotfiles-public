@@ -32,7 +32,7 @@ EOF
 }
 
 # Install sane things
-sudo apt-get install -y vim less tmux git zsh
+sudo apt-get install -y vim vim-youcompleteme less tmux git zsh
 
 git clone --recursive https://github.com/JSteeleIR/dotfiles-public.git ~/.dotfiles
 ~/.dotfiles/install
