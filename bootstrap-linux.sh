@@ -39,4 +39,5 @@ git clone --recursive https://github.com/JSteeleIR/dotfiles-public.git ~/.dotfil
 
 # Install Vim plugins
 vim -c VundleInstall -c quitall
+python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --go-completer
 chsh -s /bin/zsh
