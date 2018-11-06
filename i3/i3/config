@@ -163,7 +163,7 @@ bar {
 
 # Mod + L Lock screen
 #bindsym $mod+l exec "gnome-screensaver-command --lock"
-bindsym Scroll_Lock  exec "i3lock -n -c 000000; $HOME/.dotfiles/scripts/i3-post-unlock.sh"
+bindsym Scroll_Lock  exec "i3lock-fancy -- scrot -z ; $HOME/.dotfiles/scripts/i3-post-unlock.sh"
 
 # Workspace assignments
 assign [class="^terminator$"] 2

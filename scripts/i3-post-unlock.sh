@@ -6,3 +6,4 @@
 # Leverage ssh-find-agent to keep the SSH socket consistent.
 source $HOME/.dotfiles/scripts/ssh-find-agent.sh
 ssh-find-agent -a
+touch /tmp/post-unlock

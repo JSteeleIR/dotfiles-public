@@ -71,6 +71,7 @@ endif
 
 " For plugins that should always run
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-sensible'
 Plugin 'christoomey/vim-tmux-navigator'
