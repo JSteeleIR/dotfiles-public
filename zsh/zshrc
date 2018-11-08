@@ -39,7 +39,7 @@
 # local files may override base files by using a higher-numbered prefix.
 # E.g.:
 #       .dotfiles/zsh/zshrc.d/00-baseconf1.zsh <- Sets some config
-#       .dotfiles_local/zshrc-d/09-localconf1.zsh <- Overides that config
+#       .dotfiles_local/zshrc.d/09-localconf1.zsh <- Overides that config
 #
 # By convention, config files should try to adhere to the following
 # PREFIX-<name>.zsh structure to maintain this flexibility and the
