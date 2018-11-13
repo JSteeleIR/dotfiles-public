@@ -75,7 +75,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-sensible'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'edkolev/tmuxline.vim'
+Plugin 'bling/vim-bufferline'
 Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-git'
@@ -127,14 +131,19 @@ augroup autoformat_settings
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
+" Airline statusbar and settings:
+let g:airline_theme='powerlineish'
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Powerline statusbar and settings
 set guifont=Hack:h15
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
+"set term=xterm-256color
 set termencoding=utf-8
 set showtabline=2
 set laststatus=2
