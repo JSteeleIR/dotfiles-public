@@ -23,4 +23,4 @@ alias txccb='cat <(echo "<b>\$ $history[$HISTCMD]</b>\n" | sed -r "s/\s*\|\s*txc
 
 # Tee the command line, stripped of the '|txccm' and the output to the clipboard.
 # Also add markdown bold tags to the command itself.
-alias txccm='cat <(echo "\*\$ $history[$HISTCMD]\*\n" | sed -r "s/\s*\|\s*txccm//") - |txc'
+alias txccm='cat <(echo "**\$ $history[$HISTCMD]**\n" | sed -r "s/\s*\|\s*txccm//") - |txc'

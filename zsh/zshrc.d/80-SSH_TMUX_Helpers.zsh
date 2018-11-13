@@ -8,6 +8,9 @@
 # Add quick shortcut to reattach or create base tmux session
 alias tmxa='tmx2 attach-session -t tmux_base || tmx2 new-session -s tmux_base'
 
+# Add alias to re-export DISPLAY variable
+alias rexd='export DISPLAY="$(tmux show-env | sed -n 's/^DISPLAY=//p')"'
+
 # Manually search for the SSH_AUTH_AGENT, and let us choose
 alias sfa='ssh-find-agent -c'
 

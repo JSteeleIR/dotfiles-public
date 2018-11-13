@@ -16,3 +16,6 @@
 [submodule "zsh/powerlevel9k"]
 	path = zsh/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
+[submodule "i3/i3/i3lock-multimonitor"]
+	path = i3/i3lock-multimonitor
+	url = git@github.com:JSteeleIR/i3lock-multimonitor.git
