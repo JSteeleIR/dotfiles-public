@@ -18,4 +18,5 @@
     ~/.dotfiles/zsh/oh-my-zsh/custom/themes/powerlevel9k:
       create: true
       path: 'zsh/powerlevel9k'
+    ~/.imwheelrc: 'X11/imwheelrc'
 
