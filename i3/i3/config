@@ -243,3 +243,4 @@ exec --no-startup-id xsetroot -solid "#000000" # Set Background to Black
 exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
 #exec gnome-terminal --hide-menubar --full-screen
 exec diodon
+exec --no-startup-id imwheel -b "10 11" -k
