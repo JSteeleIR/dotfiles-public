@@ -19,4 +19,5 @@
       create: true
       path: 'zsh/powerlevel9k'
     ~/.imwheelrc: 'X11/imwheelrc'
+    ~/.Xresources: 'X11/Xresources'
 

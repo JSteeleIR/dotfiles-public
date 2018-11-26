@@ -34,3 +34,7 @@
 ! white
 *.color7:       #93a1a1
 *.color15:      #fdf6e3
+
+XTerm.termName: xterm-256color
+XTerm.vt100.metaSendsEscape: true
+XTerm*faceName: Hack:size=6
