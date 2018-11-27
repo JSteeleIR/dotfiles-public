@@ -12,7 +12,9 @@ set viewoptions=cursor,folds    " Save cursor position and folds.
 set wildmenu                    " Enhanced completion.
 set wildmode=longest:full,full  " Act like shell completion.
 set history=1000                " Remember a lot.
+set ignorecase                  " Ignore case when searching
 set incsearch                   " Search incrementally as I type.
+set hlsearch                    " Highlight full match on search.
 set relativenumber number       " Use relative line numbers.
 set showcmd                     " Show the last command.
 set showmatch                   " When a bracket is typed show its match.
