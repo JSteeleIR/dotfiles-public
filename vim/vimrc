@@ -97,6 +97,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'RRethy/vim-illuminate'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"

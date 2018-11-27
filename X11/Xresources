@@ -22,5 +22,9 @@
 
 XTerm.termName: xterm-256color
 XTerm.vt100.metaSendsEscape: true
-XTerm*faceName: Hack:size=6
+XTerm*faceName: Hack:size=11
 XTerm.disallowedWindowOps: 20,21,SetXprop
+XTerm*VT100.Translations: #override \
+      Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n\ 
+      Shift Ctrl<Key>V: insert-selection(PRIMARY) \n\ 
+
