@@ -101,6 +101,12 @@ Plugin 'vim-scripts/VisIncr'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
+Plugin 'mhinz/vim-signify'
+Plugin 'natebosch/vim-lsc'
+
+" Don't display bufferline in command bar
+let g:bufferline_echo = 0
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -159,6 +165,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
+" Ctrlspace settings:
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+
 
 " Clipboard overrides for system-clipboard integration and SSH-TMUX-Forwarding
 " copy the current text selection to the system clipboard
@@ -169,6 +180,21 @@ else
   " https://github.com/sunaku/home/blob/master/bin/yank
   noremap <silent> <Leader>y y:call system('yank > /dev/tty', @0)<Return>
 endif
+
+" highlight lines in Sy and vimdiff etc.)
+
+highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+
+" highlight signs in Sy
+
+highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+
+" Have gutter match background:
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " Enable file type based indent configuration and syntax highlighting.
 " Note that when code is pasted via the terminal, vim by default does not detect

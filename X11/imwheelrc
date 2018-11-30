@@ -1,3 +1,4 @@
 "^Google-chrome$"
     None, ExtBt8, Control_L|Tab
     None, ExtBt7, Control_L|Shift_L|Tab
+    None, ExtBt9, Control_L|W
