@@ -8,3 +8,7 @@ alias defangurl='sed -re "s|http(s?\:\/\/[[:alnum:]\.]*)\.([[:alnum:]]*\/?)|hxxp
 
 # Tshark Analysis Shortcuts
 alias tsum='tshark_summary.sh'
+
+# shorthand for xdg-open to open files in the right program based on
+# their MIME type
+alias start='xdg-open'
