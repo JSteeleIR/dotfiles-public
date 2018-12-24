@@ -249,4 +249,4 @@ exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
 #exec gnome-terminal --hide-menubar --full-screen
 exec xterm
 exec diodon
-exec --no-startup-id imwheel -b "0 0 0 0 0 0 10 11" -k
+exec --no-startup-id imwheel -b "0 0 0 0 0 0 10 11 12" -k

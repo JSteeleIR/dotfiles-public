@@ -169,6 +169,8 @@ let g:syntastic_check_on_wq = 1
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
+" Perforce-compatible Project Root Markers
+let g:CtrlSpaceProjectRootMarkers =  ['OWNERS']
 
 
 " Clipboard overrides for system-clipboard integration and SSH-TMUX-Forwarding
