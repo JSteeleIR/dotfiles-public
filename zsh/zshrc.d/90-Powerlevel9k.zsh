@@ -5,7 +5,7 @@
 POWERLEVEL9K_TIME_FORMAT='%D{%Y-%m-%d\ %T%Z}'
 POWERLEVEL9K_TIME_BACKGROUND="black"
 POWERLEVEL9K_TIME_FOREGROUND="white"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date kubecontext time)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status history command_execution_time background_jobs load)
 
 # Two-lined prompt
