@@ -20,3 +20,8 @@ interval=5
 [zrhtime]
 command=TZ="Europe/Zurich" date +%H%Z
 interval=5
+
+[volume-pulseaudio]
+command=$HOME/.dotfiles/i3/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
+interval=once
+signal=1
