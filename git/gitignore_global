@@ -1,0 +1,4 @@
+# Global .gitignore files for JSteeleIR
+
+# Ignore Ctrl-Space Vim cache files
+.cs_files

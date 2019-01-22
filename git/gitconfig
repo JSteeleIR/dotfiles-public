@@ -1,0 +1,6 @@
+[user]
+	email = jsteele@jsteeleir.com
+	name = Jacob Steele
+[core]
+        whitespace = fix,-indent-with-non-tab,tab-in-indent,tabwidth=4,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore_global
