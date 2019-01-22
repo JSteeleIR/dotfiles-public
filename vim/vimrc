@@ -58,7 +58,6 @@ set rtp+=~/.vim/Vundle.vim
 " Load local customizations, if they exist:
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
   source ~/.dotfiles_local/vim/vimrc
-  call vundle#begin()
 else
 " execute pathogen#infect('~/.dotfiles/vim/bundle-ext/{}')
   call vundle#begin()
