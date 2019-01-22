@@ -3,7 +3,9 @@
 
 SOURCES=($HOME/(.dotfiles|.dotfiles_local)/i3/i3/*.conf(Noe\''REPLY=${REPLY:t}'\'))
 
-#echo $SOURCES
+if [ ! -z $DEBUG ]; then
+    echo $SOURCES | tr ' ' '\n'
+fi
 
 # Concatenate all i3 files from global and local dotfiles into master config.
 mkdir -p ~/.config/i3/
