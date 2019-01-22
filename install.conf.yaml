@@ -6,6 +6,7 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [i3/i3/compile_config.zsh, Compiling i3 config]
 
 - link:
     ~/.dotfiles: ''
