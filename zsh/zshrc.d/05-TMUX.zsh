@@ -13,5 +13,5 @@ export PATH="$PATH:$HOME/.dotfiles/scripts"
 # Check for and start TMUX
 if [[ -z "$TMUX" ]]; then
        echo "Launching tmux..."
-       tmux attach-session -t tmux_base || tmux new-session -s tmux_base
+       tmux new-session -A -s tmux_base
 fi
