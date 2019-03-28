@@ -1,0 +1,12 @@
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+#cmd.meld = ~/.dotfiles_local/scripts/hg-multi-diff.sh
+cmd.meld = /usr/bin/meld
+
+[merge-tools]
+meld.args = --auto-merge --label='incoming' $local --label='merged' $base --label='existing' $other -o $output
+
+[pager]
+ignore = log, status

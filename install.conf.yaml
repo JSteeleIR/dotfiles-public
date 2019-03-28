@@ -23,3 +23,4 @@
     ~/.Xresources: 'X11/Xresources'
     ~/.gitconfig: 'git/gitconfig'
     ~/.gitignore_global: 'git/gitignore_global'
+    ~/.hgrc: 'mercurial/hgrc'
