@@ -55,13 +55,12 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/Vundle.vim
 
+call vundle#begin()
+
 " Load local customizations, if they exist:
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
   source ~/.dotfiles_local/vim/vimrc
 else
-" execute pathogen#infect('~/.dotfiles/vim/bundle-ext/{}')
-  call vundle#begin()
-
   " Load plugins that should only run if there aren't customizations
   Plugin 'google/vim-codefmt'
   Plugin 'google/vim-maktaba'
