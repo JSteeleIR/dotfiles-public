@@ -10,7 +10,7 @@ vim/cache
 vim/.netrwhist
 vim/bundle/
 vim/.netrwhist
-vim/tmp
+vim/tmp/*
 vim/sessions
 tmux/plugins/
 tmux/resurrect
