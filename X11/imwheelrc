@@ -1,4 +1,17 @@
+"^.* - Google.com Mail - Google Chrome$"
+    None, ExtBt8, Control_L|Tab # Move to next Tab
+    None, ExtBt7, Control_L|Shift_L|Tab # Move to previous Tab
+    None, ExtBt9, e # In Gmail, archive current email
+
 "^Google-chrome$"
-    None, ExtBt8, Control_L|Tab
-    None, ExtBt7, Control_L|Shift_L|Tab
-    None, ExtBt9, Control_L|W
+    None, ExtBt8, Control_L|Tab # Move to next Tab
+    None, ExtBt7, Control_L|Shift_L|Tab # Move to previous Tab
+    None, ExtBt9, Control_L|W # Close Current Tab
+    Shift_L, ExtBt9, Control_L|Shift_L|t # Reopen last closed tab
+
+"^xterm$"
+    None, ExtBt8, Shift_L|Right # Tmux move to next window
+    None, ExtBt7, Shift_L|Left # Tmux move to previos window
+
+".*"
+    Super_L, ExtBt9, Super_L|Shift_L|q # i3 Kill current window
