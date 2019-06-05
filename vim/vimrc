@@ -51,6 +51,8 @@ set directory=$HOME/.vim/tmp//
 
 filetype off
 
+set rtp+=~/.dotfiles_local/vim/
+
 " Vundle Stuff
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/Vundle.vim
@@ -72,7 +74,8 @@ endif
 " For plugins that should always run
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'tpope/vim-sensible'
 Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
