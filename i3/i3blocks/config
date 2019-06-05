@@ -1,8 +1,28 @@
+#Pull the current task from timekeeper file
+[current-task]
+command=tail -n 1 $HOME/timekeeping.csv | cut -d, -f2
+interval=5
+
 # Query my default IP address only on startup
 [ip]
 command=hostname -I | awk '{ print "IP:" $1 }'
 interval=once
 color=#91E78B
+
+# Show bandwidth counters.
+[bandwidth]
+command=$HOME/.dotfiles/i3/i3blocks/i3blocks-contrib/bandwidth2/bandwidth2
+interval=persist
+markup=pango
+LABEL=
+WARN_RX=307200
+WARN_TX=307200
+CRIT_RX=512000
+CRIT_TX=512000
+#INTERFACE=(checks all interfaces)
+##USE_BITS=0
+##USE_BYTES=1
+##USE_SI=0
 
 # Update time every 5 seconds
 [psttime]
