@@ -60,7 +60,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Load these plugins ALWAYS
-    plugins=(vi-mode git tmux aws bgnotify colorize encode64 iwhois jsontools python rsync sudo virtualenv vagrant docker docker-machine kubectl helm pep8 pip pylint golang github)
+    plugins=(vi-mode git tmux aws bgnotify colorize encode64 iwhois jsontools python rsync sudo virtualenv vagrant docker docker-machine kubectl helm pep8 pip pipenv pylint golang github)
 if [[ `uname` == 'Linux' ]]; then
 # Add these plugins if in linux
     plugins=("${plugins[@]}")
