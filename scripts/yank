@@ -55,4 +55,4 @@ test -n "$DISPLAY" && command -v xsel > /dev/null && command -v xclip > /dev/nul
     && printf %s "$buf" | { xsel -ib || xclip -sel c ;} && exit
 
 # copy to pbcopy on MacOS
-command -v pbcopy > /dev/null && printf %s "$buf" | reattach-to-user-namespace pbcopy
+command -v pbcopy > /dev/null && printf %s "$buf" | pbcopy
