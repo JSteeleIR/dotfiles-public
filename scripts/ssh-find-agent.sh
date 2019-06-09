@@ -61,6 +61,12 @@ find_all_osx_keychain_agent_sockets() {
 	_debug_print "$_OSX_KEYCHAIN_AGENT_SOCKETS"
 }
 
+find_all_sekey_sockets() {
+        _debug_print "Finding all sekey  agents..."
+	_SEKEY_SOCKETS=`find $HOME/.sekey -type s -name ssh-agent.ssh 2> /dev/null | grep '.sekey/ssh-agent.ssh'`
+	_debug_print "$_SEKEY_SOCKETS"
+}
+
 test_agent_socket() {
 	local SOCKET=$1
 	SSH_AUTH_SOCK=$SOCKET ssh-add -l 2> /dev/null > /dev/null
@@ -123,6 +129,13 @@ find_live_ssh_agents() {
 	done
 }
 
+find_live_sekey_agents() {
+	for i in ${=_SEKEY_SOCKETS}
+	do
+		test_agent_socket ${=i}
+	done
+}
+
 function fingerprints() {
     local file="$1"
     while read l; do
@@ -148,11 +161,13 @@ find_all_agent_sockets() {
 	find_all_gpg_agent_sockets
 	find_all_gnome_keyring_agent_sockets
 	find_all_osx_keychain_agent_sockets
+        find_all_sekey_sockets
         _debug_print 'Finding live agents...'
 	find_live_ssh_agents
 	find_live_gpg_agents
 	find_live_gnome_keyring_agents
 	find_live_osx_keychain_agents
+        find_live_sekey_agents
 
        # # Set ZSH parameter expansion back to default 
        # if [[ -n "$ZSH_VERSION" && $wordsplit != 'on' ]]; then
