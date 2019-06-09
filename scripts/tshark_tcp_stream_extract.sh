@@ -17,15 +17,15 @@ echo "Determining total number of streams..."
 STREAM_COUNT=`tshark -r $PCAP -T fields -e tcp.stream | sort -u | wc -l`
 echo "$STREAM_COUNT streams detected."
 
-if [[ -v $2 && $2 -ge $(( $STREAM_COUNT - 1 )) ]]; then
+if [[ -n $2 && ($2 -ge $(( $STREAM_COUNT - 1 ))) ]]; then
   STREAM=$2
-elif [[ -v $2 ]]; then
+elif [[ -n "$2" ]]; then
   echo "Stream # \"$2\" doesn't exist!"
   return 1
 fi
 
 echo "Extracting streams..."
-if [[ -v $STREAM ]]; then
+if [[ -n "$STREAM" ]]; then
   tshark -r $PCAP -q -z follow,tcp,ascii,$STREAM
 else
   for STREAM in `seq 0 $(( $STREAM_COUNT -1 ))`; do
