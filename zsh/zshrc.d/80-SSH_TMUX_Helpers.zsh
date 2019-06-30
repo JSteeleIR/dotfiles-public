@@ -24,6 +24,8 @@ alias sfa='ssh-find-agent -c'
 # Show keys available in the current SSH_AUTH_SOCK
 alias sal='ssh-add -l'
 alias saL='ssh-add -L'
+# Show key fingerprints in md5 format (for github.)
+alias salg='ssh-add -l -E md5'
 
 # gpg-agent based ssh-agent reload. sets TTY so Pinentry knows where to ask
 # for pin (if using a yubikey for SSH key storage)
