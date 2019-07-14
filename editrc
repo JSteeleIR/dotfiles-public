@@ -1,0 +1,10 @@
+# Bind vim-style
+bind -v
+bind "^R" em-inc-search-prev
+#bind "^C" rl_interrupt
+bind \\t rl_complete
+# TODO(wxorxornull): Make Arrow Keys not be stupid (drop into vi-command-mode).
+#bind -v -s -k \e\eha
+#bind -v -s -k right \ela
+#bind -a -s -k left ha
+#bind -a -s -k right la

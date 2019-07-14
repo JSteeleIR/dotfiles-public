@@ -105,6 +105,8 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'mhinz/vim-signify'
 Plugin 'natebosch/vim-lsc'
+Plugin 'jsteeleir/vim-terraform'
+
 
 " Don't display bufferline in command bar
 let g:bufferline_echo = 0

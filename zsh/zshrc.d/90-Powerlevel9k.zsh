@@ -5,9 +5,12 @@
 POWERLEVEL9K_TIME_FORMAT='%D{%Y-%m-%d\ %T%Z}'
 POWERLEVEL9K_TIME_BACKGROUND="black"
 POWERLEVEL9K_TIME_FOREGROUND="white"
+
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='013'
 POWERLEVEL9K_VIRTUALENV_FOREGROUND='015'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date kubecontext time virtualenv)
+# Disable kubecontext for now
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date kubecontext time virtualenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date time virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status history command_execution_time background_jobs load)
 
 # Two-lined prompt
@@ -18,3 +21,4 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status history command_execution_tim
 #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{black}%F{white} `date +%Y-%m-%d\ %T%Z` %f%k%F{093}\uE0B0%f "
 
+#POWERLEVEL9K_DISABLE_RPROMPT=true
