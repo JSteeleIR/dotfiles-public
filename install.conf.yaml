@@ -24,3 +24,4 @@
     ~/.gitconfig: 'git/gitconfig'
     ~/.gitignore_global: 'git/gitignore_global'
     ~/.hgrc: 'mercurial/hgrc'
+    ~/.config/karabiner/karabiner: 'karabiner/'
