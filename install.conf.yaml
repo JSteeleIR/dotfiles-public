@@ -25,4 +25,4 @@
     ~/.gitignore_global: 'git/gitignore_global'
     ~/.hgrc: 'mercurial/hgrc'
     ~/.editrc: 'editrc'
-    ~/.config/karabiner/karabiner: 'karabiner/'
+    ~/.config/karabiner: 'karabiner/'
