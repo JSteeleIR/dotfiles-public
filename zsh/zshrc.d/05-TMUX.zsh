@@ -10,8 +10,8 @@
 export PATH="$PATH:$HOME/.dotfiles/scripts"
 
 
-# Check for and start TMUX
-if [[ -z "$TMUX" ]]; then
+# Check for and start TMUX. Don't start if in ASCIINEMA session.
+if [[ -z "$TMUX" && ! -v ASCIINEMA_REC ]]; then
        echo "Launching tmux..."
        tmux new-session -A -s tmux_base
 fi
