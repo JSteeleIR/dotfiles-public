@@ -36,6 +36,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status history command_execution_tim
 #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{black}%F{white} `date +%Y-%m-%d\ %T%Z` %f%k%F{093}\uE0B0%f "
 
-#POWERLEVEL9K_DISABLE_RPROMPT=true
-
-
+# Settings for recording asciicasts:
+if [[ -v ASCIINEMA_REC ]]; then
+    POWERLEVEL9K_DISABLE_RPROMPT=true
+    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'>'
+fi
