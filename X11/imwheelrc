@@ -2,6 +2,8 @@
     None, ExtBt8, Control_L|Tab # Move to next Tab
     None, ExtBt7, Control_L|Shift_L|Tab # Move to previous Tab
     None, ExtBt9, e # In Gmail, archive current email
+    None, Left, j # In Gmail, wheel-click-left to go to next conv.
+    None, Right, k # In Gmail, wheel-clikc-right to go to prev. conv.
 
 "^Google-chrome$"
     None, ExtBt8, Control_L|Tab # Move to next Tab
