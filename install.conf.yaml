@@ -26,3 +26,4 @@
     ~/.hgrc: 'mercurial/hgrc'
     ~/.editrc: 'editrc'
     ~/.config/karabiner: 'karabiner/'
+    ~/.config/rofi: 'rofi/'
