@@ -5,6 +5,13 @@
     None, Left, j # In Gmail, wheel-click-left to go to next conv.
     None, Right, k # In Gmail, wheel-clikc-right to go to prev. conv.
 
+"^Google.com - Calendar - Week of .* - Google Chrome$"
+    None, ExtBt8, Control_L|Tab # Move to next Tab
+    None, ExtBt7, Control_L|Shift_L|Tab # Move to previous Tab
+    #None, ExtBt9, e # In Gmail, archive current email
+    None, Left, k # In Calendar, wheel-click-left to go to next week.
+    None, Right, j # In Calendar, wheel-clikc-right to go to prev. week.
+
 "^Google-chrome$"
     None, ExtBt8, Control_L|Tab # Move to next Tab
     None, ExtBt7, Control_L|Shift_L|Tab # Move to previous Tab
@@ -17,3 +24,5 @@
 
 ".*"
     Super_L, ExtBt9, Super_L|Shift_L|q # i3 Kill current window
+    Super_L, ExtBt8, Super_L|L # Move to next Tab
+    Super_L, ExtBt7, Super_L|H Move to previous Tab
