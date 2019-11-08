@@ -33,6 +33,12 @@ interval=5
 command=TZ="America/New_York" date +%H%Z
 interval=5
 
+# Weather for Seattle.
+[seaweather]
+command=$HOME/.dotfiles/i3/i3blocks/i3blocks-anachron/blocks/weather
+instance=5809844
+interval=300
+
 [utctime]
 command=date -u +%H%Z
 interval=5
@@ -41,9 +47,19 @@ interval=5
 command=TZ="Australia/Sydney" date +%H%Z
 interval=5
 
+[sydweather]
+command=$HOME/.dotfiles/i3/i3blocks/i3blocks-anachron/blocks/weather
+instance=2147714
+interval=300
+
 [zrhtime]
 command=TZ="Europe/Zurich" date +%H%Z
 interval=5
+
+[zrhweather]
+command=$HOME/.dotfiles/i3/i3blocks/i3blocks-anachron/blocks/weather
+instance=2657896
+interval=300
 
 [volume-pulseaudio]
 command=$HOME/.dotfiles/i3/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
