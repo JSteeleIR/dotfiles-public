@@ -13,9 +13,10 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND='015'
 zsh_p9k_gcloud(){
     if [[ $(fc -nl -5) =~ 'gcloud|gc' ]]; then
         if (( $+commands[gcloud] )); then
-            local config_name=$(gcloud config configurations list | awk '{if ($2 == "True") print $1;}')
-            local project_id=$(gcloud config configurations list | awk '{if ($2 == "True") print $4;}')
-            echo -n "\u2601 $config_name:$project_id"
+            #local config_name=$(gcloud config configurations list | awk '{if ($2 == "True") print $1;}')
+            #local project_id=$(gcloud config configurations list | awk '{if ($2 == "True") print $4;}')
+            #echo -n "\u2601 $config_name:$project_id"
+            cat $HOME/.config/gcloud/active_config
         fi
     fi
 }
@@ -26,6 +27,7 @@ POWERLEVEL9K_CUSTOM_GCLOUD_BACKGROUND="018"
 # Disable kubecontext for now
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date kubecontext time virtualenv)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date time custom_gcloud virtualenv)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline custom_date time virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status history command_execution_time background_jobs load)
 
 # Two-lined prompt
