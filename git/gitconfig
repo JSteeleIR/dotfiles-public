@@ -4,3 +4,16 @@
 [core]
         whitespace = fix,-indent-with-non-tab,tab-in-indent,tabwidth=4,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore_global
+
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
+[merge]
+    tool = meld
+
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"

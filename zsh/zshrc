@@ -70,8 +70,16 @@
 # their dependencies and before their dependents.
 
 
-# Helper alias right up top, so we can re-source ZSH easily
+# Helper aliases right up top, so we can re-source ZSH easily
+TRAPUSR1() {
+  if [[ -o INTERACTIVE ]]; then
+     {echo; echo execute a new shell instance } 1>&2
+     exec "${SHELL}"
+  fi
+}
 alias resrc='. ~/.zshrc'
+alias rexec='exec $(which zsh)'
+alias rexall='killall -USR1 zsh'
 
 # Source files by XX-<NAME> prefix order, across .dotfiles and .dotfiles_local
 # Don't look at it too hard. zsh globs are 'fucking wat mate', but we're using

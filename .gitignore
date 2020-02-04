@@ -2,16 +2,23 @@
 *.swo
 *.un~
 sensitive/
+
+# aws
 aws/shell/1.10.1-completions.json.docs
 aws/shell/cache/
 aws/shell/history
 aws/credentials
-vim/cache
-vim/.netrwhist
-vim/bundle/
-vim/.netrwhist
-vim/tmp/*
-vim/sessions
+
+# tmux
 tmux/plugins/
 tmux/resurrect
+
+# vim
+vim/.netrwhist
+vim/.netrwhist
+vim/bundle/
+vim/cache
+vim/sessions
+vim/spell/*
+vim/tmp/*
 vim/undo/
