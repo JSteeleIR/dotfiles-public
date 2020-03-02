@@ -11,4 +11,6 @@ meld.args = --auto-merge --label='incoming' $local --label='merged' $base --labe
 [pager]
 ignore = log, status
 
+[alias]
+au = !$HG amend && $HG upload -r .
 %include $HOME/.dotfiles_local/mercurial/hgrc
