@@ -25,3 +25,6 @@
 [submodule "i3/i3blocks/i3blocks"]
 	path = i3/i3blocks/i3blocks
 	url = https://github.com/vivien/i3blocks.git
+[submodule "zsh/powerlevel10k"]
+	path = zsh/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

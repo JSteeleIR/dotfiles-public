@@ -86,36 +86,36 @@ typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
   # laravel_version       # laravel php framework version (https://laravel.com/)
   # java_version          # java version (https://www.java.com/)
   # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
-  rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
-  rvm                     # ruby version from rvm (https://rvm.io)
-  fvm                     # flutter version management (https://github.com/leoafarias/fvm)
-  luaenv                  # lua version from luaenv (https://github.com/cehoffman/luaenv)
-  jenv                    # java version from jenv (https://github.com/jenv/jenv)
-  plenv                   # perl version from plenv (https://github.com/tokuhirom/plenv)
-  phpenv                  # php version from phpenv (https://github.com/phpenv/phpenv)
-  haskell_stack           # haskell version from stack (https://haskellstack.org/)
+  #rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
+  #rvm                     # ruby version from rvm (https://rvm.io)
+  #fvm                     # flutter version management (https://github.com/leoafarias/fvm)
+  #luaenv                  # lua version from luaenv (https://github.com/cehoffman/luaenv)
+  #jenv                    # java version from jenv (https://github.com/jenv/jenv)
+  #plenv                   # perl version from plenv (https://github.com/tokuhirom/plenv)
+  #phpenv                  # php version from phpenv (https://github.com/phpenv/phpenv)
+  #haskell_stack           # haskell version from stack (https://haskellstack.org/)
   kubecontext             # current kubernetes context (https://kubernetes.io/)
   terraform               # terraform workspace (https://www.terraform.io)
   aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
-  aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
-  azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
+  #aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
+  #azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
   gcloud                  # google cloud cli account and project (https://cloud.google.com/)
   google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
-  nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
-  ranger                  # ranger shell (https://github.com/ranger/ranger)
-  nnn                     # nnn shell (https://github.com/jarun/nnn)
+  #nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
+  #ranger                  # ranger shell (https://github.com/ranger/ranger)
+  #nnn                     # nnn shell (https://github.com/jarun/nnn)
   vim_shell               # vim shell indicator (:sh)
   midnight_commander      # midnight commander shell (https://midnight-commander.org/)
-  nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
+  #nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
   # vi_mode               # vi mode (you don't need this if you've enabled prompt_char)
   # vpn_ip                # virtual private network indicator
   load                  # CPU load
   # disk_usage            # disk usage
   # ram                   # free RAM
   # swap                  # used swap
-  todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
-  timewarrior             # timewarrior tracking status (https://timewarrior.net/)
-  taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
+  #todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
+  #timewarrior             # timewarrior tracking status (https://timewarrior.net/)
+  #taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
   # =========================[ Line #2 ]=========================
   #newline
   # ip                    # ip address and bandwidth usage for a specified network interface
@@ -162,7 +162,7 @@ typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
 # '─'. The last two make it easier to see the alignment between left and right prompt and to
 # separate prompt from command output. You might want to set POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 # for more compact prompt if using using this option.
-typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
+typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR='·'
 typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_BACKGROUND=
 typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_GAP_BACKGROUND=
 if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
@@ -359,7 +359,7 @@ typeset -g POWERLEVEL9K_DIR_CLASSES=()
 # typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
 
 # Branch icon. Set this parameter to '\uF126 ' for the popular Powerline branch icon.
-typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
+typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
 
 # Untracked files icon. It's really a question mark, your font isn't broken.
 # Change the value of this parameter to show a different icon.
@@ -479,7 +479,7 @@ typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION=
 # Show status of repositories of these types. You can add svn and/or hg if you are
 # using them. If you do, your prompt may become slow even when your current directory
 # isn't in an svn or hg reposotiry.
-typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
+typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 
 ##########################[ status: exit code of the last command ]###########################
 # Enable OK_PIPE, ERROR_PIPE and ERROR_SIGNAL status states to allow us to enable, disable and
@@ -1341,7 +1341,7 @@ typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION='az'
 ##########[ gcloud: google cloud account and project (https://cloud.google.com/) ]###########
 # Show gcloud only when the the command you are typing invokes one of these tools.
 # Tip: Remove the next line to always show gcloud.
-typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs'
+typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|bq'
 # Google cloud color.
 # typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND=7
 # typeset -g POWERLEVEL9K_GCLOUD_BACKGROUND=4
@@ -1369,13 +1369,15 @@ typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs'
 # and COMPLETE. You can also hide gcloud in state PARTIAL by setting
 # POWERLEVEL9K_GCLOUD_PARTIAL_VISUAL_IDENTIFIER_EXPANSION and
 # POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION to empty.
+#typeset -g POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_ID//\%/%%}'
+#typeset -g POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_NAME//\%/%%}'
 typeset -g POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_ID//\%/%%}'
-typeset -g POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_NAME//\%/%%}'
+typeset -g POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_ID//\%/%%}:${P9K_GCLOUD_ACCOUNT//\%/%%}'
 
 # Send a request to Google (by means of `gcloud projects describe ...`) to obtain project name
 # this often. Negative value disables periodic polling. In this mode project name is retrieved
 # only when the current configuration, account or project id changes.
-typeset -g POWERLEVEL9K_GCLOUD_REFRESH_PROJECT_NAME_SECONDS=60
+typeset -g POWERLEVEL9K_GCLOUD_REFRESH_PROJECT_NAME_SECONDS=-60
 
 # Custom icon.
 # typeset -g POWERLEVEL9K_GCLOUD_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1433,7 +1435,8 @@ typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_CLASSES=(
 #   P9K_GOOGLE_APP_CRED_CLIENT_EMAIL | client_email
 #
 # Note: ${VARIABLE//\%/%%} expands to ${VARIABLE} with all occurences of '%' replaced by '%%'.
-typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_DEFAULT_CONTENT_EXPANSION='${P9K_GOOGLE_APP_CRED_PROJECT_ID//\%/%%}'
+#typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_DEFAULT_CONTENT_EXPANSION='${P9K_GOOGLE_APP_CRED_PROJECT_ID//\%/%%}'
+typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_DEFAULT_CONTENT_EXPANSION='${P9K_GOOGLE_APP_CRED_PROJECT_ID//\%/%%} | ${P9K_GOOGLE_APP_CRED_CLIENT_EMAIL//\%/%%}'
 
 ###############################[ public_ip: public IP address ]###############################
 # Public IP color.
@@ -1605,11 +1608,11 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
 # For example, you can type POWERLEVEL9K_BACKGROUND=red and see your prompt turn red. Hot reload
 # can slow down prompt by 1-2 milliseconds, so it's better to keep it turned off unless you
 # really need it.
-typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=false
 
 # If p10k is already loaded, reload configuration.
 # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
-(( ! $+functions[p10k] )) || p10k reload
+#(( ! $+functions[p10k] )) || p10k reload
 
 
 # Tell `p10k configure` which file it should overwrite.
