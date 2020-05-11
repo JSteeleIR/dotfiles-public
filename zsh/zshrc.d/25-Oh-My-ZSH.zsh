@@ -7,7 +7,10 @@
 # etc., typically stored in the .dotfiles_local/zsh dir.
 
 # Path to your oh-my-zsh installation.
-echo "Starting Oh-My-Zsh..."
+
+if [[ ! -v ASCIINEMA_REC ]]; then
+    echo "Starting Oh-My-Zsh..."
+fi
 export ZSH=$HOME/.dotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
@@ -60,7 +63,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Load these plugins ALWAYS
-    plugins=(vi-mode git tmux aws bgnotify colorize encode64 iwhois jsontools python rsync sudo virtualenv vagrant docker docker-machine kubectl helm pep8 pip pipenv pylint golang github)
+    plugins=(vi-mode git tmux aws bgnotify colorize encode64 iwhois jsontools python rsync sudo virtualenv vagrant docker docker-machine kubectl helm pep8 pip pipenv pylint golang github terraform)
 if [[ `uname` == 'Linux' ]]; then
 # Add these plugins if in linux
     plugins=("${plugins[@]}")

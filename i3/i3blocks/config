@@ -29,6 +29,10 @@ CRIT_TX=512000
 command=date +%Y-%m-%d\ %T%Z
 interval=5
 
+[nyctime]
+command=TZ="America/New_York" date +%H%Z
+interval=5
+
 [utctime]
 command=date -u +%H%Z
 interval=5

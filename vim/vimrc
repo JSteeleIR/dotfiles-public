@@ -51,7 +51,8 @@ set directory=$HOME/.vim/tmp//
 
 filetype off
 
-set rtp+=~/.dotfiles_local/vim/
+nnoremap <leader>rtp :new \| execute append(0, &runtimepath) \| s/,/\r/g \| setlocal buftype=nofile<CR>
+
 
 " Vundle Stuff
 " set the runtime path to include Vundle and initialize
@@ -61,6 +62,7 @@ call vundle#begin()
 
 " Load local customizations, if they exist:
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
+  set rtp+=~/.dotfiles_local/vim/
   source ~/.dotfiles_local/vim/vimrc
 else
   " Load plugins that should only run if there aren't customizations
@@ -88,6 +90,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-markdown'
+Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'jmcantrell/vim-diffchanges'
 Plugin 'chrisbra/Recover.vim'
 Plugin 'godlygeek/tabular'
@@ -101,23 +105,25 @@ Plugin 'simnalamburt/vim-mundo'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
+"Plugin 'prabirshrestha/vim-lsp'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'mhinz/vim-signify'
-Plugin 'natebosch/vim-lsc'
+"Plugin 'natebosch/vim-lsc'
 Plugin 'jsteeleir/vim-terraform'
+Plugin 'JSteeleIR/vim-terraform-snippets'
 
 
 " Don't display bufferline in command bar
 let g:bufferline_echo = 0
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+ let g:UltiSnipsExpandTrigger="<c-j>"
+ let g:UltiSnipsJumpForwardTrigger="<c-j>"
+ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+ let g:UltiSnipsListSnippets="<c-l>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" " If you want :UltiSnipsEdit to split your window.
+ let g:UltiSnipsEditSplit="vertical"
 
 
 " All of your plugins must be added before the following line.
@@ -163,10 +169,10 @@ set laststatus=2
 set noshowmode
 
 " Syntastic settings:
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
 
 " Ctrlspace settings:
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
@@ -211,3 +217,34 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 " - auto-detect pasting (https://github.com/ConradIrwin/vim-bracketed-paste)
 filetype plugin indent on
 syntax on
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
+" ALE bindings
+imap <C-]> <Plug>(ale_hover)
+nmap <C-]> <Plug>(ale_go_to_definition)
+nmap <leader><C-]> <Plug>(ale_go_to_definition_in_split)
+let g:ale_completion_enabled=1
+let g:ale_linters = {
+      \ 'go': ['golangserver', 'gofmt', 'golint', 'govet'],
+      \ 'python': ['pyls', 'autopep8'],
+      \}
+
+" Auto-reload buffers if they change on disk.
+set autoread
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+
+
+if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
+  source ~/.dotfiles_local/vim/after/**/*.vim
+endif
