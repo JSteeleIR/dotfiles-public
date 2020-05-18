@@ -1341,7 +1341,7 @@ typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION='az'
 ##########[ gcloud: google cloud account and project (https://cloud.google.com/) ]###########
 # Show gcloud only when the the command you are typing invokes one of these tools.
 # Tip: Remove the next line to always show gcloud.
-typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|bq'
+typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|bq|gsutil'
 # Google cloud color.
 # typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND=7
 # typeset -g POWERLEVEL9K_GCLOUD_BACKGROUND=4
