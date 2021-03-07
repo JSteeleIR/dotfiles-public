@@ -19,6 +19,9 @@
     ~/.dotfiles/zsh/oh-my-zsh/custom/themes/powerlevel9k:
       create: true
       path: 'zsh/powerlevel9k'
+    ~/.dotfiles/zsh/oh-my-zsh/custom/themes/powerlevel10k:
+      create: true
+      path: 'zsh/powerlevel10k'
     ~/.imwheelrc: 'X11/imwheelrc'
     ~/.Xresources: 'X11/Xresources'
     ~/.gitconfig: 'git/gitconfig'

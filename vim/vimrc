@@ -84,7 +84,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'edkolev/tmuxline.vim'
-Plugin 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
 Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-git'
@@ -96,7 +96,7 @@ Plugin 'jmcantrell/vim-diffchanges'
 Plugin 'chrisbra/Recover.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/ListToggle'
 Plugin 'avakhov/vim-yaml'
@@ -109,22 +109,28 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'mhinz/vim-signify'
 "Plugin 'natebosch/vim-lsc'
+Plugin 'jpalardy/vim-slime'
 Plugin 'jsteeleir/vim-terraform'
+Plugin 'JSteeleIR/vim-terraform-snippets'
 
 
 " Don't display bufferline in command bar
 let g:bufferline_echo = 0
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" 
+ let g:UltiSnipsExpandTrigger="<c-j>"
+ let g:UltiSnipsJumpForwardTrigger="<c-j>"
+ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+ let g:UltiSnipsListSnippets="<c-l>"
+
 " " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
+ let g:UltiSnipsEditSplit="vertical"
 
+" SLIME Config:
 
-" All of your plugins must be added before the following line.
+let g:slime_target = "tmux"
+
+"All of your plugins must be added before the following line.
 
 call vundle#end()
 " Load pathogen
@@ -227,6 +233,20 @@ let g:ale_linters = {
       \ 'go': ['golangserver', 'gofmt', 'golint', 'govet'],
       \ 'python': ['pyls', 'autopep8'],
       \}
+
+" Auto-reload buffers if they change on disk.
+set autoread
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 
 
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))

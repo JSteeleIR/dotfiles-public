@@ -18,7 +18,7 @@ export ZSH=$HOME/.dotfiles/zsh/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,7 +63,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Load these plugins ALWAYS
-    plugins=(vi-mode git tmux aws bgnotify colorize encode64 iwhois jsontools python rsync sudo virtualenv vagrant docker docker-machine kubectl helm pep8 pip pipenv pylint golang github terraform)
+    plugins=(vi-mode git tmux aws bgnotify colorize encode64 jsontools python rsync sudo virtualenv vagrant docker docker-machine kubectl helm pep8 pip pipenv pylint golang github terraform)
 if [[ `uname` == 'Linux' ]]; then
 # Add these plugins if in linux
     plugins=("${plugins[@]}")
