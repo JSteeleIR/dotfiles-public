@@ -84,7 +84,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'edkolev/tmuxline.vim'
-Plugin 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
 Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-git'
@@ -109,6 +109,7 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'mhinz/vim-signify'
 "Plugin 'natebosch/vim-lsc'
+Plugin 'jpalardy/vim-slime'
 Plugin 'jsteeleir/vim-terraform'
 Plugin 'JSteeleIR/vim-terraform-snippets'
 
@@ -125,8 +126,11 @@ let g:bufferline_echo = 0
 " " If you want :UltiSnipsEdit to split your window.
  let g:UltiSnipsEditSplit="vertical"
 
+" SLIME Config:
 
-" All of your plugins must be added before the following line.
+let g:slime_target = "tmux"
+
+"All of your plugins must be added before the following line.
 
 call vundle#end()
 " Load pathogen
