@@ -17,3 +17,7 @@
 
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[credential]
+	helper = osxkeychain
+[init]
+	defaultBranch = main
