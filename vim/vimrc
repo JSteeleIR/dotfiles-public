@@ -252,3 +252,5 @@ autocmd FileChangedShellPost *
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
   source ~/.dotfiles_local/vim/after/**/*.vim
 endif
+
+command! Resrc source ~/.vimrc
