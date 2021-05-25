@@ -28,3 +28,6 @@
 [submodule "zsh/powerlevel10k"]
 	path = zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "scripts/pushover-cli-repo"]
+	path = scripts/pushover-cli-repo
+	url = https://github.com/markus-perl/pushover-cli.git
