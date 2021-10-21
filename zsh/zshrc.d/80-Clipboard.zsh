@@ -15,12 +15,12 @@ alias xcc='fc -nl -1 | cat <(echo -n "\$") - | xc'
 alias txc='tee >(xc)'
 
 # Tee the command line, stripped of the '|txcc' and the output of the command, to the clipboard
-alias txcc='cat <(echo "\$ $history[$HISTCMD]\n" | sed -r "s/\s*\|\s*txcc//") - |txc'
+alias txcc='cat <(echo "\$> $history[$HISTCMD]\n" | sed -r "s/\s*\|\s*txcc//") - |txc'
 
 # Tee the command line, stripped of the '|txccb' and the output to the clipboard.
 # Also add HTML bold tags to the command itself.
-alias txccb='cat <(echo "<b>\$ $history[$HISTCMD]</b>\n" | sed -r "s/\s*\|\s*txccb//") - |txc'
+alias txccb='cat <(echo "<b>\$> $history[$HISTCMD]</b>\n" | sed -r "s/\s*\|\s*txccb//") - |txc'
 
 # Tee the command line, stripped of the '|txccm' and the output to the clipboard.
 # Also add markdown bold tags to the command itself.
-alias txccm='cat <(echo "**\$ $history[$HISTCMD]**\n" | sed -r "s/\s*\|\s*txccm//") - |txc'
+alias txccm='cat <(echo "**\$> $history[$HISTCMD]**\n" | sed -r "s/\s*\|\s*txccm//") - |txc'

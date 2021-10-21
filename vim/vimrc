@@ -284,3 +284,5 @@ let g:instant_markdown_browser = "/Applications/Google\ Chrome.app/Contents/MacO
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
   source ~/.dotfiles_local/vim/after/**/*.vim
 endif
+
+command! Resrc source ~/.vimrc
