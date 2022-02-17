@@ -81,6 +81,10 @@ alias resrc='. ~/.zshrc'
 alias rexec='exec $(which zsh)'
 alias rexall='killall -USR1 zsh'
 
+if [[ -v "ZSH_INIT_DONE" ]]; then
+  unset "ZSH_INIT_DONE"
+fi
+
 # Source files by XX-<NAME> prefix order, across .dotfiles and .dotfiles_local
 # Don't look at it too hard. zsh globs are 'fucking wat mate', but we're using
 # them here because it's shell-native and we don't have to exec some other bin.
@@ -100,3 +104,5 @@ done
 
 # Clean PATH (Deduplicate respecting order since TMUX and resrcing makes it unwieldy)
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+export ZSH_INIT_DONE=true
