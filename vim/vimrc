@@ -95,7 +95,8 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'jmcantrell/vim-diffchanges'
 Plugin 'chrisbra/Recover.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'jiangmiao/auto-pairs'
+"Plugin 'jiangmiao/auto-pairs'
+Plugin 'cohama/lexima.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/ListToggle'
@@ -183,7 +184,8 @@ let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " Perforce-compatible Project Root Markers
-let g:CtrlSpaceProjectRootMarkers =  ['OWNERS']
+let g:CtrlSpaceProjectRootMarkers =  ['OWNERS', 'METADATA']
+nnoremap <silent><C-p> :CtrlSpace O<CR>
 
 
 " Clipboard overrides for system-clipboard integration and SSH-TMUX-Forwarding
@@ -233,6 +235,8 @@ let g:ale_linters = {
       \ 'go': ['golangserver', 'gofmt', 'golint', 'govet'],
       \ 'python': ['pyls', 'autopep8'],
       \}
+let g:ale_lint_on_save = 1
+let g:ale_detail_to_floating_preview = 1
 
 " Auto-reload buffers if they change on disk.
 set autoread
