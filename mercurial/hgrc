@@ -16,5 +16,10 @@ u = !$HG update
 ae = !$HG amend && $HG evolve
 au = !$HG amend && $HG upload -r .
 aue = !$HG amend && $HG upload -r . && $HG evolve
+aeu = !$HG amend && $HG evolve && $HG upload -r .
+aeuc = !$HG amend && $HG evolve && $HG uploadchain
+aeup = !$HG amend && $HG evolve && $HG upload -r . && $HG presubmit -r .
+aeupc = !$HG amend && $HG evolve && $HG uploadchain && $HG presubmit -r .::
 aup = !$HG amend && $HG upload -r . && $HG presubmit
+sss = !$HG sync && $HG submit -r . && $HG sync
 %include $HOME/.dotfiles_local/mercurial/hgrc
