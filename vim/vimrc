@@ -21,9 +21,13 @@ set showmatch                   " When a bracket is typed show its match.
 set smartcase                   " Be smart about when case sensitivity matters.
 set mouse=a                     " Turn on mouse-mode
 set clipboard=unnamed           " Use the X11 Clipboard
+"set pastetoggle=<C-v>           " Make pasting easier.
 nnoremap <C-w>v :vnew<CR>       " Remap V to make it sane
 
-" Highlighting settings
+" Quick command to re-src vimrc
+command Resrc source ~/.vimrc
+
+"Highlighting settings
 set cursorline                  " Highlight the current line.
 hi CursorLine term=none cterm=none ctermbg=black guibg=black " Make the current Line stand out
 hi illuminatedWord cterm=underline gui=underline " Set word highlighting to underline
@@ -113,6 +117,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'jpalardy/vim-slime'
 Plugin 'jsteeleir/vim-terraform'
 Plugin 'JSteeleIR/vim-terraform-snippets'
+Plugin 'instant-markdown/vim-instant-markdown', {'rtp': 'after'}
 
 
 " Don't display bufferline in command bar
@@ -123,8 +128,8 @@ let g:bufferline_echo = 0
  let g:UltiSnipsJumpForwardTrigger="<c-j>"
  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
  let g:UltiSnipsListSnippets="<c-l>"
-
-" " If you want :UltiSnipsEdit to split your window.
+ let g:UltiSnipsSnippetDirectories=[ "UltiSnips" ]
+ "If you want :UltiSnipsEdit to split your window.
  let g:UltiSnipsEditSplit="vertical"
 
 " SLIME Config:
@@ -238,6 +243,17 @@ let g:ale_linters = {
 let g:ale_lint_on_save = 1
 let g:ale_detail_to_floating_preview = 1
 
+let g:ale_fixers = {
+\   'json': [
+\       'fixjson',
+\   ],
+\   'ruby' : [
+\       'rubocop',
+\       'remove_trailing_lines',
+\       'trim_whitespace'
+\   ]
+\}
+
 " Auto-reload buffers if they change on disk.
 set autoread
 " Triger `autoread` when files changes on disk
@@ -252,7 +268,23 @@ autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 
+" Instant Markdown settings
+"Uncomment to override defaults:
+"let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+"let g:instant_markdown_mermaid = 1
+"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+"let g:instant_markdown_autoscroll = 0
+"let g:instant_markdown_port = 8888
+let g:instant_markdown_python = 1
+let g:instant_markdown_browser = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window"
 
+"
+"
 if filereadable(expand("~/.dotfiles_local/vim/vimrc"))
   source ~/.dotfiles_local/vim/after/**/*.vim
 endif
