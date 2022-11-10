@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while (true); do
+    echo "Clipboard daemon open..."
+    nc -b lo0 -l 5556 | pbcopy
+    echo "Copied: "; pbpaste
+done
