@@ -56,3 +56,9 @@ test -n "$DISPLAY" && command -v xsel > /dev/null && command -v xclip > /dev/nul
 
 # copy to pbcopy on MacOS
 command -v pbcopy > /dev/null && printf %s "$buf" | pbcopy
+
+# Copy to remote pbcopy daemon, if attached
+if $(nc -z localhost 5556); then
+  printf %s "$buf" | nc localhost 5556
+
+fi

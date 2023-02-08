@@ -10,8 +10,12 @@
 export PATH="$PATH:$HOME/.dotfiles/scripts"
 
 
-# Check for and start TMUX Unless it's suppressed.
-if [[ -z "$TMUX" && -z "$SUPPRESS_TMUX" ]]; then
-       echo "Launching tmux..."
-       tmux new-session -A -s tmux_base
+# Check for and start TMUX. Don't start if NO_INIT_TMUX is set.
+if [[ -z "$TMUX" ]]; then
+    if [[ ! -v $SUPPRESS_TMUX ]]; then
+        echo "Launching tmux..."
+        tmux new-session -A -s tmux_base
+    else
+        echo "SUPPRESS_TMUX is set. Supressing TMUX launch."
+    fi
 fi

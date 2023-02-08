@@ -12,14 +12,21 @@ meld.args = --auto-merge --label='incoming' $local --label='merged' $base --labe
 ignore = log, status
 
 [alias]
+xs = !$HG status && $HG xl
 u = !$HG update
+ut = !$HG upload tree
 ae = !$HG amend && $HG evolve
 au = !$HG amend && $HG upload -r .
 aue = !$HG amend && $HG upload -r . && $HG evolve
 aeu = !$HG amend && $HG evolve && $HG upload -r .
 aeuc = !$HG amend && $HG evolve && $HG uploadchain
+aeut = !$HG amend && $HG evolve && $HG upload tree
 aeup = !$HG amend && $HG evolve && $HG upload -r . && $HG presubmit -r .
-aeupc = !$HG amend && $HG evolve && $HG uploadchain && $HG presubmit -r .::
+aeupc = !$HG amend && $HG evolve && $HG uploadchain && $HG presubmit -d -r .::
+aeupt = !$HG amend && $HG evolve && $HG upload tree && $HG presubmit -d -r .::
 aup = !$HG amend && $HG upload -r . && $HG presubmit
 sss = !$HG sync && $HG submit -r . && $HG sync
-%include $HOME/.dotfiles_local/mercurial/hgrc
+sssut = !$HG sss && !$HG ut
+pc = !$HG pickcheckout
+
+%include ~/.dotfiles_local/mercurial/hgrc

@@ -17,6 +17,9 @@ alias txc='tee >(xc)'
 # Tee the command line, stripped of the '|txcc' and the output of the command, to the clipboard
 alias txcc='cat <(echo "\$> $history[$HISTCMD]\n" | sed -r "s/\s*\|\s*txcc//") - |txc'
 
+# Tee the command line (with PWD), stripped of the '|txcc' and the output of the command, to the clipboard
+alias dtxcc='cat <(echo "$PWD \$> $history[$HISTCMD]\n" | sed -r "s/\s*\|\s*txcc//") - |txc'
+
 # Tee the command line, stripped of the '|txccb' and the output to the clipboard.
 # Also add HTML bold tags to the command itself.
 alias txccb='cat <(echo "<b>\$> $history[$HISTCMD]</b>\n" | sed -r "s/\s*\|\s*txccb//") - |txc'
